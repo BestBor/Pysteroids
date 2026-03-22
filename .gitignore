@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+# General use
+game_state.jsonl
+
 # Local Configuration
 .vscode/
