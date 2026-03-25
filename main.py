@@ -15,7 +15,13 @@ def main():
     # delta time
     dt = 0
 
-    # player status
+    # Groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
+
+    # instantiation registers player into groups
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
 
@@ -28,8 +34,13 @@ def main():
 
         
         screen.fill("black")
-        player.update(dt)
-        player.draw(screen)
+
+        updatable.update(dt)
+
+        for element in drawable:
+            element.draw(screen)
+
+            
         pygame.display.flip()
         dt = clock.tick(60)/1000
 
